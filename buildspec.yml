@@ -1,38 +1,39 @@
 version: 0.2
-phases: 
-  install:
-    runtime-versions:
-        docker: 18     
-    commands: 
-      - nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://127.0.0.1:2375 --storage-driver=overlay2&
-      - timeout 15 sh -c "until docker info; do echo .; sleep 1; done"
-  pre_build: 
-    commands: 
-    - echo Logging in to Amazon ECR.... 
-    - aws --version
-    # update the following line with your own region
-    - $(aws ecr get-login --no-include-email --region eu-west-1)
-    - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
-    - IMAGE_TAG=${COMMIT_HASH:=latest}
-    - REPOSITORY_URI=125571554996.dkr.ecr.ap-southeast-1.amazonaws.com/demoecr
-  build: 
-    commands: 
-    - echo Build started on `date` 
-    - echo Building the Docker image... 
-    # update the following line with the name of your own ECR repository
-    - docker build -t $REPOSITORY_URI:latest .
-    # update the following line with the URI of your own ECR repository (view the Push Commands in the console)
-    - docker tag $REPOSITORY_URI:latest $REPOSITORY_URI:$IMAGE_TAG 
-  post_build: 
-    commands: 
-    - echo Build completed on `date` 
-    - echo pushing to repo
-    # update the following line with the URI of your own ECR repository
-    - docker push $REPOSITORY_URI:latest
-    - docker push $REPOSITORY_URI:$IMAGE_TAG
-    - echo Writing image definitions file... 
-    #- printf '[{"ImageURI":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imageDetail.json
-    - printf '{"ImageURI":"%s"}' $REPOSITORY_URI:$IMAGE_TAG > imageDetail.json
-artifacts:
-  files:
-    - imageDetail.json
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>BALENO</title>
+
+</head>
+
+<body style="margin: 0;padding: 0;-webkit-box-sizing: border-box;box-sizing: border-box;">
+    <div style="width: 600px;height: fit-content;margin: auto;">
+        <img src="https://d4rm7rwhdb51m.cloudfront.net/speakers/1246_620e2fe366f99.png" width="100%">
+        <h3 style="font-size: 2rem;margin-bottom:0;">Thank you for registering!</h3>
+        <p style="font-size: 1.25rem;margin: 10px 0px;font-weight: 500;">We're delighted to have you on board.</p>
+        <p style="font-size: 1.25rem;margin: 10px 0px;font-weight: 500;">Please find your credentials below.</p>
+        <br>
+        <p style="font-size: 1.25rem;margin: 10px 0px;font-weight: 700;">11:30 am onwards</p>
+        <p style="font-size: 1.25rem;margin: 10px 0px;font-weight: 700;">Wednesday, 23rd February 2022</p>
+        <p style="font-size: 1.25rem;margin: 10px 0px;font-weight: 700;">Mobile Number / Email ID: xxxxxxxx</p>
+        <p style="font-size: 1.25rem;margin: 10px 0px;font-weight: 700;margin-bottom: 25px;">Password: *******</p>
+        <a href="https://newagebalenolaunch.multitvsolution.com/" target="_blank"
+            style="cursor: pointer;background: #000;color: #fff;border: 0;padding: 1rem 1.5rem;margin-top: 5px;text-decoration: none;">EVENT
+            PAGE</a>
+        <br><br>
+        <p style="font-size: 1.25rem;margin: 10px 0px;font-weight: 500;">We can't wait for you to have an immersive
+            experience </p>
+        <p style="font-size: 1.25rem;margin: 10px 0px;font-weight: 500;">at the exclusive launch of the New Age Baleno.
+        </p>
+        <br>
+        <p style="font-size: 1.25rem;margin: 10px 0px;font-weight: 500;">Thank you,</p>
+
+        <p style="font-size: 1.25rem;margin: 10px 0px;font-weight: 500;font-weight: 700;">Team NEXA</p>
+
+    </div>
+</body>
+
+</html>
