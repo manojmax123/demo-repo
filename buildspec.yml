@@ -1,40 +1,12 @@
 version: 0.2
 
-<!doctype html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>BALENO</title>
-
-</head>
-
-<body style="margin: 0;padding: 0;-webkit-box-sizing: border-box;box-sizing: border-box;">
-    <div style="width: 600px;height: fit-content;margin: auto;">
-        <img src="https://d4rm7rwhdb51m.cloudfront.net/speakers/1246_620e2fe366f99.png" width="100%">
-        <h3 style="font-size: 2rem;margin-bottom:0;">Thank you for registering!</h3>
-        <p style="font-size: 1.25rem;margin: 10px 0px;font-weight: 500;">We're delighted to have you on board.</p>
-        <p style="font-size: 1.25rem;margin: 10px 0px;font-weight: 500;">Please find your credentials below.</p>
-        <br>
-        <p style="font-size: 1.25rem;margin: 10px 0px;font-weight: 700;">11:30 am onwards</p>
-        <p style="font-size: 1.25rem;margin: 10px 0px;font-weight: 700;">Wednesday, 23rd February 2022</p>
-        <p style="font-size: 1.25rem;margin: 10px 0px;font-weight: 700;">Mobile Number / Email ID: xxxxxxxx</p>
-        <p style="font-size: 1.25rem;margin: 10px 0px;font-weight: 700;margin-bottom: 25px;">Password: *******</p>
-        <a href="https://newagebalenolaunch.multitvsolution.com/" target="_blank"
-            style="cursor: pointer;background: #000;color: #fff;border: 0;padding: 1rem 1.5rem;margin-top: 5px;text-decoration: none;">EVENT
-            PAGE</a>
-        <br><br>
-        <p style="font-size: 1.25rem;margin: 10px 0px;font-weight: 500;">We can't wait for you to have an immersive
-            experience </p>
-        <p style="font-size: 1.25rem;margin: 10px 0px;font-weight: 500;">at the exclusive launch of the New Age Baleno.
-        </p>
-        <br>
-        <p style="font-size: 1.25rem;margin: 10px 0px;font-weight: 500;">Thank you,</p>
-
-        <p style="font-size: 1.25rem;margin: 10px 0px;font-weight: 500;font-weight: 700;">Team NEXA</p>
-
-    </div>
-</body>
-
-</html>
+phases:
+  install:
+    commands:
+      - npm install
+  build:
+    commands:
+      - npm test
+artifacts:
+  files:
+    - '**/*'
