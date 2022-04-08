@@ -10,7 +10,7 @@ phases:
       - echo Build started on `date`
       - echo Building the Docker image...          
       - docker build -t awscodebuild .  
-      - docker tag awscodebuild:latest 125571554996.dkr.ecr.ap-south-1.amazonaws.com/awscodebuild:latest 
+      - docker tag awscodebuild:latest 125571554996.dkr.ecr.ap-south-1.amazonaws.com/awscodebuild:latest
   post_build:
     commands:
       - echo Build completed on `date`
