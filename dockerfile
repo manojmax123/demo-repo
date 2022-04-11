@@ -11,3 +11,4 @@ RUN go build -o /bin/HelloWorld
 #Copy the build's output binary from the previous build container
 
 ENTRYPOINT ["/bin/HelloWorld"]
+EXPOSE 80
